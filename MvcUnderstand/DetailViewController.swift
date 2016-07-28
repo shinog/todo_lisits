@@ -17,15 +17,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let book: Array = userDefaults.objectForKey("Lists") as! [String]
-        textfield.text = book[0]
+        let todos: Array = userDefaults.objectForKey("Lists") as! [String]
+        textfield.text = todos[0]
         // Do any additional setup after loading the view.
     }
     
     @IBAction func saveButton(sender: AnyObject) {
-        var book: Array = userDefaults.objectForKey("Lists") as! [String]
-        book.append(textfield.text!)
-        userDefaults.setObject(book, forKey:"Lists")
+        var todos: Array = userDefaults.objectForKey("Lists") as! [String]
+        todos.append(textfield.text!)
+        userDefaults.setObject(todos, forKey:"Lists")
         userDefaults.synchronize()
         self.navigationController?.popViewControllerAnimated(true)
     }

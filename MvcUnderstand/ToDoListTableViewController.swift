@@ -37,15 +37,15 @@ class ToDoListTableViewController: UITableViewController {
     */
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var book: Array = userDefaults.objectForKey("Lists") as! [String]
-        return book.count
+        var todos: Array = userDefaults.objectForKey("Lists") as! [String]
+        return todos.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        var book: Array = userDefaults.objectForKey("Lists") as! [String]
-        cell.textLabel!.text = "\(book[indexPath.row])"
+        var todos: Array = userDefaults.objectForKey("Lists") as! [String]
+        cell.textLabel!.text = "\(todos[indexPath.row])"
         return cell
     }
     
@@ -61,9 +61,9 @@ class ToDoListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            var book: Array = userDefaults.objectForKey("Lists") as! [String]
-            book.removeAtIndex(indexPath.row)
-            userDefaults.setObject(book, forKey:"Lists")
+            var todos: Array = userDefaults.objectForKey("Lists") as! [String]
+            todos.removeAtIndex(indexPath.row)
+            userDefaults.setObject(todos, forKey:"Lists")
             print(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
