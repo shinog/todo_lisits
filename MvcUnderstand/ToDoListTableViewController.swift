@@ -14,18 +14,15 @@ class ToDoListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var book: Array = userDefaults.objectForKey("Lists") as! [String]
-        
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        var book: Array = userDefaults.objectForKey("Lists") as! [String]
+        tableView.reloadData()
     }
-    
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,7 +41,6 @@ class ToDoListTableViewController: UITableViewController {
         return book.count
     }
     
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
@@ -59,7 +55,6 @@ class ToDoListTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
 
     
     // Override to support editing the table view.
